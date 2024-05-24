@@ -7,7 +7,7 @@ export const AARON: Animal = {
   gender: 'male',
   birthdate: new Date(),
   favouriteFruit: 'cherry',
-  height: 150,
+  height: 1.5,
   weight: 150,
 }
 

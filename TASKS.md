@@ -48,7 +48,7 @@ Zookeepers reported that the error sometimes changes when reloading the page aft
 
 // Your solution:
 After fixing the errors that I mentioned in Task 1, everything is running smoothly without any errors on the console tab. 🎉 I can see the homepage with a brief introduction about the dashboard with a list of Animals with their Gender, Age, and Weight. BUT wait..., the Age column is supposed to show the age of the animal in years, but it is showing the birth date of the animal. So in the `TheAnimalTable.vue` file, `birthdate` value is used for this column instead of calculating the age of the animal based on the birthdate. There is already a `useCalculateAgeInYears.ts` file, so I imported it to `TheAnimalTable.vue` file, and used `useCalculatedAgeInYears` instead of `birthdate`. but I faced `TypeError: birthdate.getTime is not a function` error. The reason behind this error is that the birthdate is not a Date object, and to fix this problem, I converted it to a Date object and it fixed this problem. So now we have the list with the correct data.
-Just a tiny note: Since the Age column is showing the age in years, for the animals who are younger than 1 year, 0 is shown (which is not the best definition 😅).
+Just another tiny note: Since the Age column is showing the age in years, for the animals who are younger than 1 year, 0 is shown (which is not the best definition 😅).
 
 ### Task 3: Start the documentation
 
@@ -87,7 +87,7 @@ Please fix the two above problems and outline what was necessarry to do so.
 The zookeepers want to be able to see all details of an animal. Please create such a view that allows them to do so, outline anything about your process while adding the view below. The zookeepers didn't have time for more information, sorry. They'll surely be glad to criticize the first version intensly though and will want to know why you went for the approach you chose.
 
 // Your solution:
-I added a detailed view of each animal that can be expanded by clicking on the animal row. By clicking on an animal row, a list of all details of the animal will be shown to the zookeepers. I add this feature by adding `@click` event handler and checking the clicked animal index number.
+I added a detailed view of each animal that can be expanded by clicking on the animal row. By clicking on an animal row, a list of all details of the animal will be shown to the zookeepers. I add this feature by adding `@click` event handler and checking the clicked animal index number. After making these changes, I was checking the animal data that I get from the API and one Dog called Aaron 🐕 caught my eye! so the height of all animals are in meters and in a range from 0.25m to 4m as we can see in the `fakeData.ts`. but Aaron's height was 150 🦕. so I checked the API and saw that Aaron's data is hardcoded and we have `height: 150` in line 11 of `fakeData.ts`. So I assumed that this was a tiny (let's call it) issue that should be resolved!
 
 ### Task 7: Logic Feature
 

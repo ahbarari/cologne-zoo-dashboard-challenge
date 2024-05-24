@@ -77,6 +77,9 @@ The zookeepers report that the table is incomplete and different than usually. M
 Please fix the two above problems and outline what was necessarry to do so.
 
 // Your solution
+1. `Name` column as you said is only missing in the table and it is already included in the animals api and type, so I just added it to the table.
+2. for the sorting, I only changed the line 12 of `TheAnimalTable.vue` and used for sorting alphabetically.
+3. I already fixed the Age column issue in Task2.
 
 ### Task 6: UI Feature 1
 

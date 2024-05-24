@@ -86,6 +86,7 @@ Please fix the two above problems and outline what was necessarry to do so.
 The zookeepers want to be able to see all details of an animal. Please create such a view that allows them to do so, outline anything about your process while adding the view below. The zookeepers didn't have time for more information, sorry. They'll surely be glad to criticize the first version intensly though and will want to know why you went for the approach you chose.
 
 // Your solution
+I added a detail view of each animal that can be expanded by clicking on the animal row. By clicking on a animal row, a list of all details of the animal will be shown to the zookeepers. I add this feature by adding `@click` event handler and check the clicked animal index number.
 
 ### Task 7: Logic Feature
 

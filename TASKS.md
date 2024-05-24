@@ -35,6 +35,9 @@ In a first step you should inspect the health of the project and report on every
 Please take stock fo the page using developer tools, your instincts, ... and write down below what you find.
 
 // Your solution
+1. First, when I run the project with `pnpm run dev` I get a 500 alert not found error, which I fixed with deleting the line 4 of `app.vue` file.
+
+2. After fixing the above problem, the page is laoded but the list of the animals is empty, so I assumed something is wrong or missing with retrieving data. So, I opened the console tab of my browser and saw a 500 Internal server error in animals api request. so I checked `animals.get.ts` file and there was a typo in line 5 (`ANlMALS` instead of `ANIMALS`.)
 
 ### Task 2: Get the basics running again
 

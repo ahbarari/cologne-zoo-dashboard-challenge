@@ -48,6 +48,8 @@ Now that we know that is broken, let's try to get things running again, step by 
 Zookeepers reported that the error sometimes changes when reloading the page after the initial start.
 
 // Your solution
+After fixing the errors that I mentioned in the Task 1, everything is running smoothly without any errors on console tab. 🎉 I can see the homepage with a brief introduction about the dashboard with a list of Animals with their Gender, Age, and Weight. BUT wait..., the Age column supposed to show the age of the animal in years, but it is showing the birth date of the animal. So in the `TheAnimalTable.vue` file, `birthdate` value is used for this column instead of calculating the age of the animal based on the birthdate. There is already a `useCalculateAgeInYears.ts` file, so I imported it to `TheAnimalTable.vue` file, and used `useCalculatedAgeInYears` instead of `birthdate`. but I faced `TypeError: birthdate.getTime is not a function` error. The reason behind this error is that the birthdate is not Date object, and to fix this problem, I convert it to a Date object and it fixed this problem. So now we have the list with correct data.
+Just a tiny note: Since the Age column is showing the age in years, for the animals who are younger than 1 year, 0 is shown (which is not the best definiton😅).
 
 ### Task 3: Start the documentation
 
@@ -62,6 +64,7 @@ Add your solution below, either as an inline text or link to new documentation f
 There's a failing test that for the age calculation helper. Can you figure out what is broken in the implementation or the test it is and resolve the problem? All zookeepers are really interested in what is going on here.
 
 // Your solution
+Ok! This is because of the fact that I mentioned as a note in Task2😬. So the `Math.round` method used in `useCalculatedAgeInYears` rounds the number to the nearest whole number which can be lower than the calculated value, so I changed it to `Math.ceil` which rounds up the number. ...and I ran the test again but it failed again!! The reason for this is that in the test, the birthdate is today and the difference is absolute 0 and won't be converted to 1, and this the ONLY exception for age calculation (unless some future IT Director want to test the function with a birthdate later than today😄). So I handled this tiny exception with a if statement in the `useCalculatedAgeInYears` and test passed successfully.
 
 ### Task 5: UI Fixing and Improvement
 

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import type { Animal } from '~/types'
+import useCalculateAgeInYears from '../utils/useCalculateAgeInYears'
 
 const props = defineProps<{
   animals: Animal[]
@@ -29,7 +30,7 @@ const animalsSortedByName = computed(() =>
         <td>{{ animalIndex + 1 }}</td>
         <td>{{ species }}</td>
         <td>{{ gender }}</td>
-        <td>{{ birthdate }}</td>
+        <td>{{ useCalculateAgeInYears(birthdate) }}</td>
         <td>{{ weight }}</td>
       </tr>
     </tbody>

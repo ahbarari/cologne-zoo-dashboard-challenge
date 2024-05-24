@@ -102,6 +102,7 @@ To calculate the food an animal needs in kilograms in 1 day, the zookeepers use 
 5. If the animal is a fish: The required food is 0 kg
 
 // Your solution
+I created a util function called `useCalculateNeddedFood` and did the math as explained here. The number is rounded up to an integer and is shown in the detail view of each animal in the list.
 
 ### Task 8: Plan New Feature
 

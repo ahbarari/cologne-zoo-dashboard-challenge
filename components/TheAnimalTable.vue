@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import type { Animal } from '~/types'
 import useCalculateAgeInYears from '../utils/useCalculateAgeInYears'
+import useCalculateNeededFood from '../utils/useCalculateNeededFood'
 
 const props = defineProps<{
   animals: Animal[]
@@ -52,6 +53,7 @@ const toggleAnimalDetails = (index: number) => {
               <p><strong>Weight (kg):</strong> {{ animal.weight }}</p>
               <p><strong>Height (m):</strong> {{ animal.height }}</p>
               <p><strong>Favourite Fruit:</strong> {{ animal.favouriteFruit }}</p>
+              <p><strong>Nedded Food per month (kg):</strong> {{ useCalculateNeededFood(animal) }}</p>
             </div>
           </td>
         </tr>

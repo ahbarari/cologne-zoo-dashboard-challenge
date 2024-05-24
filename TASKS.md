@@ -34,7 +34,7 @@ In a first step you should inspect the health of the project and report on every
 
 Please take stock fo the page using developer tools, your instincts, ... and write down below what you find.
 
-// Your solution
+// Your solution:
 1. First, when I run the project with `pnpm run dev` I get a 500 alert not found error, which I fixed with deleting the line 4 of `app.vue` file.
 
 2. After fixing the above problem, the page is laoded but the list of the animals is empty, so I assumed something is wrong or missing with retrieving data. So, I opened the console tab of my browser and saw a 500 Internal server error in animals api request. so I checked `animals.get.ts` file and there was a typo in line 5 (`ANlMALS` instead of `ANIMALS`.)
@@ -47,7 +47,7 @@ Now that we know that is broken, let's try to get things running again, step by 
 
 Zookeepers reported that the error sometimes changes when reloading the page after the initial start.
 
-// Your solution
+// Your solution:
 After fixing the errors that I mentioned in the Task 1, everything is running smoothly without any errors on console tab. 🎉 I can see the homepage with a brief introduction about the dashboard with a list of Animals with their Gender, Age, and Weight. BUT wait..., the Age column supposed to show the age of the animal in years, but it is showing the birth date of the animal. So in the `TheAnimalTable.vue` file, `birthdate` value is used for this column instead of calculating the age of the animal based on the birthdate. There is already a `useCalculateAgeInYears.ts` file, so I imported it to `TheAnimalTable.vue` file, and used `useCalculatedAgeInYears` instead of `birthdate`. but I faced `TypeError: birthdate.getTime is not a function` error. The reason behind this error is that the birthdate is not Date object, and to fix this problem, I convert it to a Date object and it fixed this problem. So now we have the list with correct data.
 Just a tiny note: Since the Age column is showing the age in years, for the animals who are younger than 1 year, 0 is shown (which is not the best definiton😅).
 
@@ -57,13 +57,15 @@ You got it to work! Nice, now the basic functionality is back for the zookeepers
 
 Add your solution below, either as an inline text or link to new documentation file(s) you've created.
 
-// Your solution
+// Your solution:
+Here is the readme file:
+[README.md](https://github.com/ahbarari/cologne-zoo-dashboard-challenge/blob/main/README.md)
 
 ### Task 4: Test fixing
 
 There's a failing test that for the age calculation helper. Can you figure out what is broken in the implementation or the test it is and resolve the problem? All zookeepers are really interested in what is going on here.
 
-// Your solution
+// Your solution:
 Ok! This is because of the fact that I mentioned as a note in Task2😬. So the `Math.round` method used in `useCalculatedAgeInYears` rounds the number to the nearest whole number which can be lower than the calculated value, so I changed it to `Math.ceil` which rounds up the number. ...and I ran the test again but it failed again!! The reason for this is that in the test, the birthdate is today and the difference is absolute 0 and won't be converted to 1, and this the ONLY exception for age calculation (unless some future IT Director want to test the function with a birthdate later than today😄). So I handled this tiny exception with a if statement in the `useCalculatedAgeInYears` and test passed successfully.
 
 ### Task 5: UI Fixing and Improvement
@@ -76,7 +78,7 @@ The zookeepers report that the table is incomplete and different than usually. M
 
 Please fix the two above problems and outline what was necessarry to do so.
 
-// Your solution
+// Your solution:
 1. `Name` column as you said is only missing in the table and it is already included in the animals api and type, so I just added it to the table.
 2. for the sorting, I only changed the line 12 of `TheAnimalTable.vue` and used for sorting alphabetically.
 3. I already fixed the Age column issue in Task2.
@@ -85,7 +87,7 @@ Please fix the two above problems and outline what was necessarry to do so.
 
 The zookeepers want to be able to see all details of an animal. Please create such a view that allows them to do so, outline anything about your process while adding the view below. The zookeepers didn't have time for more information, sorry. They'll surely be glad to criticize the first version intensly though and will want to know why you went for the approach you chose.
 
-// Your solution
+// Your solution:
 I added a detail view of each animal that can be expanded by clicking on the animal row. By clicking on a animal row, a list of all details of the animal will be shown to the zookeepers. I add this feature by adding `@click` event handler and check the clicked animal index number.
 
 ### Task 7: Logic Feature
@@ -101,7 +103,7 @@ To calculate the food an animal needs in kilograms in 1 day, the zookeepers use 
 4. If the animal is male, add 20 %
 5. If the animal is a fish: The required food is 0 kg
 
-// Your solution
+// Your solution:
 I created a util function called `useCalculateNeddedFood` and did the math as explained here. The number is rounded up to an integer and is shown in the detail view of each animal in the list.
 
 ### Task 8: Plan New Feature
@@ -127,11 +129,13 @@ Please create a breakdown for this feature. You can focus on aspects like: What 
 
 Don't spend more thatn 15-30 minutes here - planning like this can quickly become quite complex and we want to prevent this challenge taking too much of your time!
 
-// Your solution
+// Your solution:
     We should view this feature from two perspectives. First, the logic part, that needs meetings with zookeepers and listen to their exact needs to design a needed database and more API endpoints. Then, we should consider the UI/UX part, this feature potentially needs a separate overview page displaying upcomming feeding tasks per day with the ability to search and filter by day, animal, food, etc. Also, there should be a form to add new new feeding task for each animal and also the ability to delete or edit the tasks in case of mistakes.
 
 ### Task 9: Finish the documentation
 
 Revisit docs from step 3, see if you want to add anything. Also think about bonuses. Add a general comment about anything (inside the universe of the challenge or out of it) if you want to.
 
-// Your solution
+// Your solution:
+Here is the readme file:
+[README.md](https://github.com/ahbarari/cologne-zoo-dashboard-challenge/blob/main/README.md)

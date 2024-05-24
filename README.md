@@ -6,6 +6,7 @@ This full-stack TypeScript project uses the following technologies:
 
 - Nuxt 3
 - Vue 3
+- TailwindCSS (for styling)
 - Vitest (for testing)
 - ESLint (for linting)
 

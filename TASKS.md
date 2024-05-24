@@ -128,6 +128,7 @@ Please create a breakdown for this feature. You can focus on aspects like: What 
 Don't spend more thatn 15-30 minutes here - planning like this can quickly become quite complex and we want to prevent this challenge taking too much of your time!
 
 // Your solution
+    We should view this feature from two perspectives. First, the logic part, that needs meetings with zookeepers and listen to their exact needs to design a needed database and more API endpoints. Then, we should consider the UI/UX part, this feature potentially needs a separate overview page displaying upcomming feeding tasks per day with the ability to search and filter by day, animal, food, etc. Also, there should be a form to add new new feeding task for each animal and also the ability to delete or edit the tasks in case of mistakes.
 
 ### Task 9: Finish the documentation
 
